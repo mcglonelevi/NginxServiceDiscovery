@@ -1,0 +1,18 @@
+events { }
+
+http {
+    upstream myapp1 {
+        <% addresses.each do |value| %>
+          server <%= value.address.to_s %>:8000 fail_timeout=3s;
+        <% end %>
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://myapp1;
+            add_header  X-Upstream  $upstream_addr;
+        }
+    }
+}

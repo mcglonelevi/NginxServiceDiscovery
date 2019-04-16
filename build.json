@@ -1,0 +1,21 @@
+{
+    "builders": [
+        {
+            "type": "docker",
+            "image": "nginx:latest",
+            "commit": true,
+            "changes": [
+                "EXPOSE 80",
+                "EXPOSE 443",
+                "CMD [\"nginx\", \"-g\", \"daemon off;\"]"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "ansible",
+            "user": "root",
+            "playbook_file": "playbook.yml"
+        }
+    ]
+}

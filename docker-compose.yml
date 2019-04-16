@@ -1,0 +1,12 @@
+version: "2.4"
+services:
+  nginx-discovery:
+    image: 7e2aa9410ab3
+    ports:
+      - 8080:80
+    volumes:
+      - /home/levi/Documents/projects/nginx-service-discovery/nginx.conf:/etc/nginx/nginx.conf
+      - /home/levi/Documents/projects/nginx-service-discovery/dns-sync/:/dns-sync/
+  web:
+    image: crccheck/hello-world
+    scale: 3

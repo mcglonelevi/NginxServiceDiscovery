@@ -1,0 +1,3 @@
+[submodule "roles/ansible-role-ruby"]
+	path = roles/ansible-role-ruby
+	url = https://github.com/geerlingguy/ansible-role-ruby.git
